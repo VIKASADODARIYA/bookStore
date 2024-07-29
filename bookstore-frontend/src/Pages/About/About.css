@@ -1,0 +1,30 @@
+/* .main {
+    padding: 70px 70px 15px 70px;
+    margin-top: 50px;
+} */
+
+.about-content {
+    text-align: center;
+    min-height: 70vh;
+}
+
+.about-content span {
+    color: #EC4899;
+}
+
+/* Media query for smaller screens */   
+@media (max-width: 768px) {
+
+    .about-content {
+        min-height: 150vh;
+    }
+
+    .about-content h2 {
+        font-size: 3rem;
+    }
+
+    .about-content p {
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+}
