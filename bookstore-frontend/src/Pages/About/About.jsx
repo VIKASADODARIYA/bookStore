@@ -25,6 +25,7 @@ const About = () => {
           feedback and suggestions as we continue to improve and expand our
           offerings.
         </p>
+        <p>Develop by Vikas Adodariya</p>
       </div>
       <hr />
       <Footer />
