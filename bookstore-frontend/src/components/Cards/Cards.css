@@ -1,0 +1,294 @@
+.card {
+    padding: 20px 20px 15px 20px;
+}
+
+.custom-card {
+    width: 20rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.custom-card:hover {
+    transform: scale(1.05);
+}
+
+.custom-card figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 434px;
+    margin: 0;
+    position: relative;
+}
+
+.custom-card figure img {
+    /* width: 353px; */
+    width: 288px;
+    /* height: 499px; */
+    height: 434px;
+    border-radius: 20px;
+}
+
+.card-details {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-body {
+    margin-bottom: 10px;
+    color: #000000;
+    min-height: 12rem;
+}
+
+.card-body p {
+    text-align: left;
+    margin-top: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.card-name {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.card-category {
+    background: #EC4899;
+    color: #ffff;
+    padding: 1px 10px;
+    border-radius: 10px;
+}
+
+.card-body .card-title {
+    font-weight: normal;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.badge {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.card-actions p {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.price-badge {
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.book-action {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 50px;
+    gap: 20px;
+}
+
+.read-now-button,
+.buy-now-button {
+    width: 80px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.buy-now-button:hover {
+    background: #EC4899;
+    border: #EC4899;
+    color: #ffff;
+}
+
+.star-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    color: gold;
+    display: none;
+}
+
+.custom-card:hover .star-icon {
+    display: block;
+}
+
+.star-icon:hover {
+    cursor: pointer;
+}
+
+.dark-mode .star-icon {
+    color: yellow;
+}
+
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    color: #333;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.prev {
+    left: -25px;
+}
+
+.next {
+    right: -35px;
+}
+
+.prev,
+.next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.prev:hover,
+.next:hover {
+    color: #555;
+}
+
+.custom-arrow {
+    border-radius: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.custom-arrow i {
+    font-size: 1.5rem;
+}
+
+.dark-mode .prev,
+.dark-mode .next {
+    color: #ffff;
+}
+
+.dark-mode .custom-card {
+    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+}
+
+.dark-mode .card-body {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.dark-mode .read-now-button {
+    border: 2px solid #ffffff;
+}
+
+.dark-mode .buy-now-button {
+    border: 2px solid #ffffff;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .card-body {
+        text-align: center;
+    }
+
+    .custom-card {
+        width: 100%;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        transition: transform 0.2s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 1rem;
+        overflow: hidden;
+    }
+
+    .dark-mode .custom-card {
+        width: 100%;
+    }
+
+
+    .custom-card figure {
+        width: 100%;
+        margin: 0;
+        position: relative;
+    }
+
+    .custom-card figure img {
+        width: 100%;
+        height: 479px;
+        border-radius: 20px;
+    }
+
+    .card-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .card-name {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .card-body .card-title {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .card-body .card-category {
+        text-align: center;
+        margin: 0;
+    }
+
+    .book-action {
+        gap: 10px;
+        width: 230px;
+    }
+
+    .read-now-button,
+    .buy-now-button {
+        width: 100%;
+        align-items: center;
+    }
+
+    .custom-arrow {
+        text-align: center;
+    }
+
+    .prev {
+        left: -20px;
+    }
+
+    .next {
+        right: -20px;
+    }
+}

@@ -1,0 +1,161 @@
+.user-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.user-details-container h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.user-details-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-details-table th,
+.user-details-table td {
+    padding: 16px;
+    font-size: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-details-table th {
+    background-color: #264283;
+    color: white;
+}
+
+/* Light mode row colors */
+.user-details-table:not(.dark-mode) tr:nth-child(even) {
+    background-color: #4e6cb242;
+}
+
+/* Dark mode row colors */
+
+.user-details-table.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.user-details-table.dark-mode tr:nth-child(even) {
+    background-color: #264283;
+}
+
+.bi-trash,
+.bi-pencil-square {
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.bi-trash:hover,
+.bi-pencil-square:hover {
+    color: #ff6347;
+}
+
+.confirmation-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #daf5ff;
+    color: #000000;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.confirm-button,
+.cancel-button {
+    padding: 10px 20px;
+    border: none;
+    margin: 0 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirm-button {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.cancel-button {
+    background-color: #ccc;
+    color: #333;
+}
+
+.confirm-button:hover,
+.cancel-button:hover {
+    opacity: 0.8;
+}
+
+.popup-content.dark-mode {
+    background-color: #0F172A;
+    color: #ffff;
+}
+
+@media (max-width: 768px) {
+    .user-details-container {
+        padding: 10px;
+    }
+
+    .user-details-table {
+        width: 100%;
+        font-size: 1rem;
+        overflow-x: auto;
+    }
+
+    .user-details-table th,
+    .user-details-table td {
+        padding: 5px;
+    }
+
+    .user-details-table th {
+        font-size: 1rem;
+    }
+
+    .bi-trash,
+    .bi-pencil-square {
+        font-size: 1.5rem;
+    }
+
+    .confirmation-popup {
+        padding: 20px;
+    }
+
+    .popup-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .confirm-button,
+    .cancel-button {
+        width: 100%;
+        padding: 10px;
+    }
+}

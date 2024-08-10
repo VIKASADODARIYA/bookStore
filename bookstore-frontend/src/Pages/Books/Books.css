@@ -1,0 +1,159 @@
+.sub-container {
+    justify-content: center;
+    align-items: center;
+}
+
+.heading {
+    font-size: 2.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading span {
+    color: #EC4899;
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+.heading p {
+    font-size: 1.3rem;
+}
+
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #EC4899;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+}
+
+.back-btn a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.content {
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.book-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.search-filter-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.search-filter-container i {
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 1rem;
+}
+
+.bi-plus-square {
+    cursor: pointer;
+}
+
+.search-box {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: "Signika Negative", sans-serif;
+}
+
+.search-box::placeholder {
+    color: #999;
+    font-family: "Signika Negative", sans-serif;
+}
+
+.filter-box {
+    margin-left: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: #999;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    background: none;
+    font-family: "Signika Negative", sans-serif;
+}
+
+.pagination {
+    text-align: center;
+}
+
+.prev-btn,
+.next-btn {
+    margin: 10px;
+    font-size: 1.3rem;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.dark-mode .prev-btn,
+.dark-mode .next-btn {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .heading span {
+        font-size: 2.5rem;
+    }
+
+    .heading p {
+        font-size: 1.5rem;
+        text-align: justify;
+    }
+
+    .back-btn {
+        font-size: 1.5rem;
+    }
+
+    .search-filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .search-box, .filter-box {
+        margin: 0;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

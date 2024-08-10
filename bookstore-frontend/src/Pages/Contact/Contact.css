@@ -1,0 +1,99 @@
+/* Contact.css */
+
+.contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+    min-height: 70vh;
+}
+
+.contact-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: "Signika Negative", sans-serif;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    font-family: "Signika Negative", sans-serif;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    display: flex;
+    justify-content: center;
+    background-color: #ec4899;
+    color: #fff;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.submit-btn a {
+    color: #fff;
+    padding: 10px;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        max-width: 90%;
+        margin: 0;
+        padding: 10px;
+    }
+
+    .contact-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 1rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+        font-size: 0.875rem;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .submit-btn a {
+        padding: 8px;
+    }
+}

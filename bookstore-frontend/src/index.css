@@ -1,0 +1,21 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Signika+Negative:wght@300..700&display=swap');
+body {
+    font-family: "Signika Negative", sans-serif;
+    padding: 0;
+    margin: 0;
+    background: #E7F9FF;
+}
+
+.toastBody {
+    font-family: "Signika Negative", sans-serif;
+    border-radius: 80px;
+}
+
+@media (max-width: 768px) {
+    body {
+        background: #E7F9FF;
+    }
+}

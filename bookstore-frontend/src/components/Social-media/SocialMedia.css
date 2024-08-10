@@ -1,0 +1,73 @@
+.social-sidebar {
+    position: fixed;
+    right: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: #daf5ff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px 0 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.social-sidebar .social-icon {
+    display: block;
+    margin: 10px 0;
+    font-size: 24px;
+    color: #4e4e4e;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Light Mode Hover Effects */
+.bi-github:hover {
+    color: #000000;
+}
+
+.bi-youtube:hover {
+    color: #ff0000;
+}
+
+.bi-linkedin:hover {
+    color: #0a66c2;
+}
+
+.bi-instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode Styles */
+.dark-mode.social-sidebar {
+    background-color: #1E293B;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dark-mode.social-sidebar .social-icon {
+    color: #fff;
+}
+
+@media (max-width: 768px) {
+    /* .social-sidebar {
+        position: fixed;
+        top: 13%;
+        background-color: #daf5ff;
+        border-radius: 0 0 0 8px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .social-sidebar .social-icon {
+        display: block;
+        margin: 0 10px;
+        font-size: 24px;
+        color: #4e4e4e;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    } */
+}
