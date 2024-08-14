@@ -1,14 +1,19 @@
-/* Contact.css */
-
 .contact-content {
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
+    padding: 20px;
     min-height: 70vh;
 }
 
 .contact-content h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
     text-align: center;
 }
 
@@ -44,22 +49,25 @@
 }
 
 .submit-btn {
-    display: flex;
-    justify-content: center;
+    display: block;
     background-color: #ec4899;
     color: #fff;
-    margin-top: 10px;
+    margin-top: 20px;
+    padding: 10px 20px;
     font-size: 1.2rem;
+    border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: fit-content;
-    margin: 0 auto;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.submit-btn a {
+.submit-btn:hover {
+    background-color: #d43f77;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode input, textarea {
     color: #fff;
-    padding: 10px;
-    text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -70,30 +78,15 @@
     }
 
     .contact-content h2 {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
-    .form-group label {
+    .contact-content p {
         font-size: 1rem;
-    }
-
-    .form-group input,
-    .form-group textarea {
-        padding: 8px;
-        font-size: 14px;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        font-size: 0.875rem;
     }
 
     .submit-btn {
         font-size: 1rem;
         padding: 8px 16px;
-    }
-
-    .submit-btn a {
-        padding: 8px;
     }
 }

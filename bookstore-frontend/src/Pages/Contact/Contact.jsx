@@ -28,10 +28,10 @@ const Contact = () => {
       });
 
       if (response.status === 201) {
-        toast.success("Message saved successfully!");
+        toast.success("Message sent successfully!");
         setFormData({ name: "", email: "", message: "" });
       } else {
-        toast.error("Failed to save the message.");
+        toast.error("Failed to send the message.");
       }
     } catch (error) {
       toast.error("Internal server error.");
@@ -43,9 +43,12 @@ const Contact = () => {
     <div className={`main ${isDarkMode ? "dark-mode" : ""}`}>
       <div className="contact-content">
         <h2>Contact Us</h2>
+        <p>
+          We value your feedback and are here to assist you. Whether you have questions, comments, or need support, please use the form below to get in touch with us. We will get back to you as soon as possible.
+        </p>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="name">Name :</label>
+            <label htmlFor="name">Name:</label>
             <input
               type="text"
               id="name"
@@ -80,10 +83,9 @@ const Contact = () => {
               required
             ></textarea>
           </div>
-          <div className="submit-btn" onClick={handleSubmit}>
-            {/* <button type="submit">Submit</button> */}
-            <a href="#">Submit</a>
-          </div>
+          <button type="submit" className="submit-btn">
+            Submit
+          </button>
         </form>
       </div>
       <hr />

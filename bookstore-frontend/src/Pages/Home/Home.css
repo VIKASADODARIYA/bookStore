@@ -1,6 +1,7 @@
 .main {
     padding: 100px 70px 15px 70px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
+    padding-top: 150px;
 }
 
 .container {
@@ -28,7 +29,8 @@
     font-size: 1.5rem;
 }
 
-input, textarea {
+input,
+textarea {
     background: transparent;
 }
 
@@ -77,8 +79,9 @@ input[type="email"]::placeholder {
 @media (max-width: 768px) {
     .main {
         /* text-align: center; */
-        margin-top: 50px;
         padding: 70px 30px 15px 30px;
+        /* margin-top: 50px; */
+        padding-top: 150px;
     }
 
     .container {

@@ -12,6 +12,8 @@ import UserDetails from "./components/admin-side/user-details/UserDetails";
 import { DarkModeProvider } from "./DarkModeContext";
 import AuthProvider from "./context/AuthProvider";
 import { Toaster } from "react-hot-toast";
+import FavouriteBook from "./Pages/FavouriteBook/FavouriteBook";
+import WishlistBook from "./Pages/WishlistBook/WishlistBook";
 
 function App() {
   return (
@@ -24,6 +26,8 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/books" element={<Books />} />
+              <Route path="/favorites" element={<FavouriteBook/>} />
+              <Route path="/wishlist" element={<WishlistBook/>} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/about" element={<About />} />
               <Route path="/profile" element={<Profile />} />

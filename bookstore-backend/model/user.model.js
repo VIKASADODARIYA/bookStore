@@ -26,7 +26,8 @@ const userSchema = mongoose.Schema({
         type: String,
         default: 'user',
     },
-    favourites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
+    favourites: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }],
+    wishlist: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Book' }]
 });
 const User = mongoose.model("Users", userSchema);
 export default User;

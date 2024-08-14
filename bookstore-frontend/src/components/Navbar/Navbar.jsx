@@ -34,6 +34,10 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleDropdownToggle = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
   // Function to close dropdown when a link is clicked
   const handleLinkClick = () => {
     if (isMobile) {
@@ -83,7 +87,32 @@ const Navbar = () => {
       )}
       <div className={`navbar-links ${isDropdownOpen ? "open" : ""} ${isDarkMode ? "dark-mode" : ""}`}>
         <Link to="/" className="navbar-link" onClick={handleLinkClick}>Home</Link>
-        <Link to="/books" className="navbar-link" onClick={handleLinkClick}>Books</Link>
+        <li className="navbar-link">
+          <div
+            className={`nav-link ${isDropdownOpen ? 'open' : ''}`}
+            onClick={handleDropdownToggle}
+          >
+            Books
+            <ul className={`sub-menu ${isDropdownOpen ? 'show' : ''}`}>
+              <li>
+                <Link to="/books" className="navbar-link" onClick={handleLinkClick}>
+                  All Books
+                </Link>
+              </li>
+              <li>
+                <Link to="/wishlist" className="navbar-link" onClick={handleLinkClick}>
+                  Wishlist
+                </Link>
+              </li>
+              <li>
+                <Link to="/favorites" className="navbar-link" onClick={handleLinkClick}>
+                  Favorites
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </li>
+
         <Link to="/contact" className="navbar-link" onClick={handleLinkClick}>Contact</Link>
         <Link to="/about" className="navbar-link" onClick={handleLinkClick}>About</Link>
         {authUser && authUser.role === 'admin' && (

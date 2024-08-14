@@ -1,41 +1,110 @@
 .card {
-    padding: 20px 20px 15px 20px;
+    padding: 30px;
 }
 
 .custom-card {
-    width: 20rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 1rem;
-    overflow: hidden;
+    width: 288px;
+    height: 434px;
+    margin-bottom: 30px;
+    perspective: 1000px;
+    position: relative;
+    display: inline-block;
+    transition: transform 0.5s linear;
 }
 
-.custom-card:hover {
-    transform: scale(1.05);
+.custom-card .inner {
+    width: 288px;
+    height: 434px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s linear;
+}
+
+.custom-card:hover .inner {
+    transform: rotateY(-180deg);
 }
 
 .custom-card figure {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 434px;
     margin: 0;
-    position: relative;
+    width: 288px;
+    height: 434px;
+    overflow: hidden;
 }
 
 .custom-card figure img {
-    /* width: 353px; */
+    border-radius: 10px 10px 0 0;
     width: 288px;
-    /* height: 499px; */
     height: 434px;
-    border-radius: 20px;
+}
+
+.front,
+.back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.front {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s linear;
+    height: fit-content;
+}
+
+.back {
+    position: relative;
+    transform: rotateY(180deg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    -webkit-filter: blur(8px);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-image: inherit;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: blur(8px);
+    -webkit-filter: blur(5px); */
+    background: rgba(49, 49, 49, 0.8);
+    z-index: -1;
+}
+
+.custom-card:hover .front {
+    transform: rotateY(0deg);
+}
+
+.custom-card:hover .back {
+    filter: blur(5px);
+    color: #fff;
+}
+
+.back .card-body {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+}
+
+.custom-card:hover .back {
+    filter: none;
 }
 
 .card-details {
@@ -44,24 +113,28 @@
     flex-direction: column;
 }
 
-.card-body {
-    margin-bottom: 10px;
-    color: #000000;
-    min-height: 12rem;
-}
-
 .card-body p {
-    text-align: left;
+    text-align: center;
     margin-top: 0;
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-.card-name {
+.back .card-name {
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1.8rem;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+}
+
+.front .card-name {
+    font-size: 1.3rem;
+    text-align: center;
+    background: rgba(113, 113, 113, 0.3);
+    margin: 0;
+    min-height: 50px;
+    border-radius: 0 0 10px 10px;
+    align-content: center;
 }
 
 .card-category {
@@ -69,75 +142,95 @@
     color: #ffff;
     padding: 1px 10px;
     border-radius: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+    width: fit-content;
 }
 
-.card-body .card-title {
+.back .card-title,
+.card-title {
+    margin-top: 10px;
     font-weight: normal;
     margin-bottom: 0.5rem;
     text-align: center;
-    font-size: 1rem;
+    font-size: 1.1rem;
 }
 
-.badge {
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-}
-
-.card-actions p {
-    font-size: 1rem;
-    font-weight: normal;
-}
-
-.price-badge {
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    text-align: center;
-}
 
 .book-action {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 50px;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
 }
 
-.read-now-button,
-.buy-now-button {
-    width: 80px;
+.bi-trash3 {
+    position: fixed;
+    bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.read-now-button {
+    background: #9f9f9f;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
-    padding: 5px 10px;
-    border: 2px solid #000000;
-    border-radius: 20px;
-    transition: background-color 0.2s, color 0.2s;
 }
 
-.buy-now-button:hover {
-    background: #EC4899;
-    border: #EC4899;
-    color: #ffff;
+.buy-now-button {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+        background: #EC4899;
+    }
 }
 
-.star-icon {
+.wish-star {
     position: absolute;
     top: 10px;
+    left: 10px;
     right: 10px;
-    font-size: 1.5rem;
-    color: gold;
-    display: none;
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 20px);
 }
 
-.custom-card:hover .star-icon {
+.custom-card:hover .wish-star {
+    display: flex;
+}
+
+.bag-icon {
+    font-size: 1.5rem;
+    color: #ffff00;
+    cursor: pointer;
+}
+
+.heart-icon {
+    font-size: 1.5rem;
+    color: #ff0000;
+    cursor: pointer;
+}
+
+.custom-card:hover .heart-icon {
     display: block;
 }
 
-.star-icon:hover {
+.heart-icon:hover {
     cursor: pointer;
 }
 
-.dark-mode .star-icon {
-    color: yellow;
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
 }
-
 
 .prev,
 .next {
@@ -157,7 +250,7 @@
 }
 
 .next {
-    right: -35px;
+    right: 0px;
 }
 
 .prev,
@@ -172,112 +265,46 @@
     color: #555;
 }
 
-.custom-arrow {
-    border-radius: 50%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.slick-list {
+    height: 505px;
 }
 
-.custom-arrow i {
-    font-size: 1.5rem;
+.slick-dots {
+    margin-top: 0;
+    bottom: -45px;
+}
+
+/* dark mode */
+.dark-mode .front,
+.dark-mode .back {
+    box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.2);
 }
 
 .dark-mode .prev,
 .dark-mode .next {
-    color: #ffff;
+    color: #fff;
 }
 
-.dark-mode .custom-card {
-    box-shadow: 0 4px 6px rgba(255, 255, 255, 0.2);
+.dark-mode .slick-dots li button::before {
+    color: #fff;
 }
 
-.dark-mode .card-body {
-    color: #ffffff;
-    text-decoration: none;
+.dark-mode .slick-dots .slick-active li button::before {
+    color: #fff;
 }
 
-.dark-mode .read-now-button {
-    border: 2px solid #ffffff;
-}
-
-.dark-mode .buy-now-button {
-    border: 2px solid #ffffff;
-}
 
 @media (max-width: 768px) {
-    .card {
-        width: 100%;
-        margin-bottom: 20px;
-        padding: 0;
-    }
-
-    .card-body {
-        text-align: center;
-    }
-
     .custom-card {
-        width: 100%;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        transition: transform 0.2s;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        margin-bottom: 1rem;
-        overflow: hidden;
+        padding: 5px;
     }
 
-    .dark-mode .custom-card {
-        width: 100%;
+    .card {
+        padding: 20px;
     }
 
-
-    .custom-card figure {
-        width: 100%;
-        margin: 0;
-        position: relative;
-    }
-
-    .custom-card figure img {
-        width: 100%;
-        height: 479px;
-        border-radius: 20px;
-    }
-
-    .card-details {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .card-name {
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: 30px;
-    }
-
-    .card-body .card-title {
-        text-align: center;
-        margin: 10px 0;
-    }
-
-    .card-body .card-category {
-        text-align: center;
-        margin: 0;
-    }
-
-    .book-action {
-        gap: 10px;
-        width: 230px;
-    }
-
-    .read-now-button,
     .buy-now-button {
-        width: 100%;
-        align-items: center;
+        padding: 8px 16px;
     }
 
     .custom-arrow {
@@ -285,10 +312,17 @@
     }
 
     .prev {
-        left: -20px;
+        left: -35px;
+        color: #000000;
     }
 
     .next {
-        right: -20px;
+        right: -30px;
+        color: #000000;
+    }
+
+    .dark-mode .prev,
+    .dark-mode .next {
+        color: #fff;
     }
 }

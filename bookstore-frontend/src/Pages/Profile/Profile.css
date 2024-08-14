@@ -26,6 +26,7 @@
     width: 200px;
     height: auto;
     border-radius: 50%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
 }
 
 .update-profile {

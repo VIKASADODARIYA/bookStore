@@ -7,7 +7,7 @@ import AddBook from "../../components/admin-side/AddBook/addBook.jsx";
 import "./Books.css";
 import { useAuth } from "../../context/AuthProvider.jsx";
 
-export default function Course() {
+export default function Books() {
   const [authUser] = useAuth();
   const { isDarkMode } = useDarkMode();
   const [books, setBooks] = useState([]);
@@ -21,22 +21,21 @@ export default function Course() {
   const booksPerPage = 6;
 
   useEffect(() => {
-    const getBooks = async () => {
-      try {
-        const res = await axios.get("http://192.168.134.227:5002/book");
-        setBooks(res.data);
-
-        // Extract unique categories from the books
-        const uniqueCategories = [
-          ...new Set(res.data.map((book) => book.category))
-        ];
-        setCategories(uniqueCategories);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getBooks();
+    fetchBooks();
   }, []);
+
+  const fetchBooks = async () => {
+    try {
+      const res = await axios.get("http://192.168.134.227:5002/book");
+      setBooks(res.data);
+      const uniqueCategories = [
+        ...new Set(res.data.map((book) => book.category))
+      ];
+      setCategories(uniqueCategories);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const filteredBooks = books.filter((item) => {
     return (
@@ -59,7 +58,6 @@ export default function Course() {
       return 0;
     });
   };
-
 
   const sortedBooks = sortBooks(filteredBooks, sortBy, order);
 
@@ -91,9 +89,7 @@ export default function Course() {
   const handleAddBook = async (newBook) => {
     try {
       await axios.post("http://192.168.134.227:5002/admin/addbook", newBook);
-      // Fetch updated books list after adding new book
-      const res = await axios.get("http://192.168.134.227:5002/book");
-      setBooks(res.data);
+      fetchBooks(); // Fetch updated books list after adding new book
       closeAddBookModal();
     } catch (error) {
       console.log(error);
@@ -125,13 +121,15 @@ export default function Course() {
                 quis sed magnam consequatur!
               </p>
             </div>
-            <br />
             <hr />
             <div className="book-content">
               <div className="search-filter-container">
                 {authUser && authUser.role === 'admin' && (
                   <>
-                    <i className="bi bi-plus-square" onClick={openAddBookModal}></i>
+                    <div className="add-book" onClick={openAddBookModal}>
+                      <span>Add Book</span>
+                      {/* <i className="bi bi-plus" ></i> */}
+                    </div>
                     {isAddBookOpen && <AddBook onCloseModal={closeAddBookModal} onAddBook={handleAddBook} />}
                   </>
                 )}
@@ -169,7 +167,7 @@ export default function Course() {
                 ) : (
                   <div className="content">
                     {currentBooks.map((item) => (
-                      <Cards key={item._id} item={item} />
+                      <Cards key={item._id} item={item} onDeleteBook={fetchBooks} />
                     ))}
                   </div>
                 )

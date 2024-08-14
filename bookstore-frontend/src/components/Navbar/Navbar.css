@@ -3,14 +3,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5rem;
     background-color: #daf5ff;
+    /* background-color: #c8eefc; */
     transition: box-shadow 0.3s ease-in-out;
     position: fixed;
-    top: 0;
+    padding: 0.5rem 1rem;
+    margin: 0 20px;
     width: -webkit-fill-available;
+    top: 15px;
     z-index: 1000;
-    box-shadow: none;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    border-radius: 50px;
 }
 
 .navbar.scrolled {
@@ -28,6 +31,7 @@
 .navbar-links {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 .navbar-link {
@@ -38,6 +42,8 @@
     padding: 5px;
     letter-spacing: 0.1rem;
     position: relative;
+    animation: dropdown-scale 0.3s ease-in-out forwards;
+    text-align: center;
 }
 
 .navbar-link::before {
@@ -56,20 +62,68 @@
     width: 100%;
 }
 
-.search-label {
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid #c3c3c3;
-    padding: 0.5rem;
-    height: 25px;
+.navbar-links ul,
+.navbar-links li {
+    list-style: none;
+    font-size: 1.2rem;
 }
 
-.bi-search {
-    margin-left: 0.5rem;
-    color: #999;
+.nav-link {
     cursor: pointer;
+    display: block;
 }
+
+.sub-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #daf5ff;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    min-width: 200px;
+    z-index: 10;
+    padding: 10px 0;
+    list-style-type: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sub-menu.show {
+    display: block;
+    opacity: 1;
+}
+
+.sub-menu li {
+    padding: 8px 16px;
+    white-space: nowrap;
+}
+
+.sub-menu li:hover {
+    background-color: #c8eefc;
+}
+
+.nav-item:hover .sub-menu {
+    display: block;
+}
+
+.nav-link:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.navbar-links .nav-item {
+    position: relative;
+}
+
+.navbar.dark-mode .sub-menu {
+    background-color: #1E293B;
+}
+
+.navbar.dark-mode .sub-menu li:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
 
 :root {
     --rotate-dark: 0deg;
@@ -137,10 +191,56 @@
     border-radius: 50%;
 }
 
+@keyframes dropdown-scale {
+    0% {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    20% {
+        opacity: 1;
+        transform: scale(0.7);
+    }
+
+    40% {
+        transform: scale(0.9);
+    }
+
+    60% {
+        transform: scale(1.1);
+    }
+
+    80% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.navbar-links.open .navbar-link:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.navbar-links.open .navbar-link:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.navbar-links.open .navbar-link:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.navbar-links.open .navbar-link:nth-child(5) {
+    animation-delay: 0.4s;
+}
+
 /* Dark mode styles */
 .navbar.dark-mode {
     background-color: #1E293B;
     color: #fff;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
 }
 
 .navbar.dark-mode .navbar-link {
@@ -185,11 +285,9 @@
 
 /* Media query for smaller screens */
 @media (max-width: 768px) {
-
     .navbar {
-        padding: 20px;
-        background-color: #daf5ff;
-        align-items: center;
+        padding: 0.5rem;
+        margin: 0 10px;
     }
 
     .navbar-brand img {
@@ -198,25 +296,82 @@
 
     .navbar-links {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
         width: 100%;
+        height: 100%;
         background-color: #daf5ff;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         flex-direction: column;
-        transform-origin: top bottom;
+        transform-origin: right;
+        z-index: 1000;
+        border-radius: 0;
+        margin: 0;
+        overflow-y: auto;
+        transition: transform 0.3s ease;
+        transform: translateX(150%);
     }
 
     .navbar-links.open {
         display: flex;
+        transform: translateY(0);
+        padding-top: 100px;
+        z-index: -1;
     }
 
     .navbar-link {
-        width: 100%;
-        text-align: center;
-        padding: 1rem 0;
-        border-bottom: 1px solid #ccc;
+        width: 90%;
+        text-align: left;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        text-decoration: none;
+        color: #333;
+        opacity: 0;
+    }
+
+    .navbar-link:nth-child(1) {
+        font-size: 4rem;
+    }
+
+    .navbar-link:nth-child(2) {
+        font-size: 3.5rem;
+    }
+
+    .navbar-link:nth-child(3) {
+        font-size: 3rem;
+    }
+
+    .navbar-link:nth-child(4) {
+        font-size: 2.5rem;
+    }
+
+    .navbar-link:nth-child(5) {
+        font-size: 2rem;
+    }
+
+    .navbar-link:nth-child(6) {
+        font-size: 1.5rem;
+    }
+
+    .sub-menu {
+        position: relative;
+        padding: 0;
+        margin: 0;
+        margin-left: 50px;
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        box-shadow: none;
+    }
+
+    .sub-menu li {
+        list-style: '-';
+    }
+
+    .sub-menu .navbar-link {
+        font-size: 2rem;
+        margin-left: 0;
     }
 
     .dropdown-toggle {
@@ -302,54 +457,5 @@
     .dropdown-toggle.dark-mode .bar3 {
         background-color: #fff;
     }
-
-}
-
-.navbar-links.open .navbar-link {
-    animation: dropdown-scale 0.3s ease-in-out forwards;
-}
-
-@keyframes dropdown-scale {
-    0% {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-
-    20% {
-        opacity: 1;
-        transform: scale(0.7);
-    }
-
-    40% {
-        transform: scale(0.9);
-    }
-
-    60% {
-        transform: scale(1.1);
-    }
-
-    80% {
-        transform: scale(1.05);
-    }
-
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.navbar-links.open .navbar-link:nth-child(2) {
-    animation-delay: 0.1s;
-}
-
-.navbar-links.open .navbar-link:nth-child(3) {
-    animation-delay: 0.2s;
-}
-
-.navbar-links.open .navbar-link:nth-child(4) {
-    animation-delay: 0.3s;
-}
-
-.navbar-links.open .navbar-link:nth-child(5) {
-    animation-delay: 0.4s;
+    
 }

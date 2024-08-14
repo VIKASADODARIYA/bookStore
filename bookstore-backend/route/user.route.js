@@ -3,6 +3,7 @@ import { signup, login, userdetails, forgotPassword, editUserDetails, deleteUser
 import upload from "../middleware/upload.js";
 import { contactUs } from "../controller/contactus.controller.js";
 import { addFavouriteBook, removeFavouriteBook, getFavouriteBooks } from "../controller/favouriteBook.controller.js";
+import { addWishlistBook, removeWishlistBook, getWishlistBooks } from "../controller/wishlistBook.controller.js";
 
 const router = express.Router();
 
@@ -16,5 +17,8 @@ router.post("/contact-us", contactUs);
 router.post("/add-favourite", addFavouriteBook);
 router.post("/remove-favourite", removeFavouriteBook);
 router.get("/favourites/:userId", getFavouriteBooks);
+router.post("/add-wishlist", addWishlistBook);
+router.post("/remove-wishlist", removeWishlistBook);
+router.get("/wishlist/:userId", getWishlistBooks);
 
 export default router;

@@ -11,20 +11,23 @@ export default function Footer() {
       <div className="footer-container">
         <div className="footer-section">
           <h3>Contact Information</h3>
-          <p>Email: contact@bookstore.com</p>
+          <p>Email: <a href="mailto:support@bookshelf.com">support@bookshelf.com</a></p>
           <p>Phone: +91-123-456-7890</p>
           <p>Address: 123 Book St, Book City, BK 12345-INDIA</p>
         </div>
 
         <div className="footer-section">
           <h3>Quick Links</h3>
-          <Link to="/about" className="footer-link">About Us</Link>
-          <Link to="/contact" className="footer-link">Contact</Link>
-          <Link to="/jobs" className="footer-link">Jobs</Link>
-          <Link to="/presskit" className="footer-link">Press Kit</Link>
+          <div className="quick-link">
+            <Link to="/about" className="footer-link">About Us</Link>
+            <Link to="/contact" className="footer-link">Contact</Link>
+            <Link to="/jobs" className="footer-link">Jobs</Link>
+            <Link to="/presskit" className="footer-link">Press Kit</Link>
+          </div>
         </div>
 
         <div className="footer-section">
+          <p>Connect with us on social media for the latest updates:</p>
           <div className="footer-socials">
             <Link to="https://github.com/VIKASADODARIYA" target="_blank" rel="noreferrer" className="social-link">
               <i className="bi bi-github"></i>
@@ -40,7 +43,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="footer-copy">
-            &copy; 2024 - All rights reserved by bookStore.com
+            &copy; 2024 - All rights reserved by bookShelf.com
           </p>
         </div>
       </div>
